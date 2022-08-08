@@ -55,16 +55,16 @@ namespace DotNetLexical
             //
             this.menuStrip.ImageScalingSize = new Size(24, 24);
             this.menuStrip.Items.AddRange(new ToolStripItem[] {
-            this.OpenFileButton,
-            this.div1,
-            this.boldButton,
-            this.italicButton,
-            this.underlineButton,
-            this.codeInlineButton,
-            this.div2,
-            this.editorViewButton,
-            this.sourceViewButton,
-            this.editingActionsComboBox});
+                this.OpenFileButton,
+                this.div1,
+                this.boldButton,
+                this.italicButton,
+                this.underlineButton,
+                this.codeInlineButton,
+                this.div2,
+                this.editorViewButton,
+                this.sourceViewButton,
+                this.editingActionsComboBox});
             this.menuStrip.Location = new Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new Size(800, 27);

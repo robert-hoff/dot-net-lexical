@@ -21,16 +21,3 @@ The folder icon and 2 notepad looking icons currently don't offer anything. Thei
 
 The WebView2 control is actually a full-feature browser that renders the same as Microsoft Edge (both using Chromium). Unless disabled, WebView2 shares a similar context menu and keyboard shortcuts as Edge. <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd> opens up the developer tools and works from within the application.
 
-## Motivation
-
-I've been trying to find solutions that allow work on content locally, with ability to synchonise or distribute remotely, thinking this is a nice way to work content. Probably this isn't a new idea but still I haven't found anything that suits me. I think if this project achieves some form of wiki-like editing, and perhaps could manage distribution with rsync or git, it would be a good start.
-
-Beyond that, bringing the ability to edit structured content into local applications I think offers unique advantages. Such as linking into local folders or structuring files into text-based views, could offer interesting ways to browse or work on ones data.
-
-<p align="left">
-  <a href="https://discord.gg/yzbAw4hXr6">
-    <img alt="Add yourself to our Discord" src="https://img.shields.io/discord/968141901284925490?color=%237292B6&label=Discord">
-  </a>
-</p>
-
-If you find the project interesting or have any questions please join my Discord server.

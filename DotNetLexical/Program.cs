@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.Web.WebView2.WinForms;
 
+/* dot-net-lexical */
 namespace DotNetLexical
 {
     internal static class Program
@@ -40,17 +41,17 @@ namespace DotNetLexical
             Application.SetCompatibleTextRenderingDefault(false);
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             MainForm mainForm = new MainForm();
-            Form1_Load(mainForm.webView2);
+            WebViewLoaded(mainForm.webView2);
             Application.Run(mainForm);
         }
 
-        public static async void Form1_Load(WebView2 webView2)
+
+        public static async void WebViewLoaded(WebView2 webView2)
         {
             webView2.CoreWebView2InitializationCompleted += (sender, e) =>
             {
                 WebView_InitCompleted(sender as WebView2, e);
             };
-
             await webView2.EnsureCoreWebView2Async(null);
         }
 
