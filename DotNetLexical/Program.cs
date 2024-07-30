@@ -1,12 +1,13 @@
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using DotNetLexical.AppControl;
 using Microsoft.Web.WebView2.WinForms;
 
 /* dot-net-lexical */
 namespace DotNetLexical
 {
-    internal static class Program
+    internal class Program
     {
         /*
          * Run the front-end in dev mode (recommended).
@@ -22,11 +23,19 @@ namespace DotNetLexical
          *      npm run build
          */
         // private const string LEXICAL_WEBSERVER = "http://server-build/index.html";
+        // private const string LEXICAL_WEBSERVER = "http://lexical/index-file.html";
 
         /*
          * Use the project's test server
          */
-        private const string LEXICAL_WEBSERVER = "https://net-lexical.codecreation.dev/index-file.html";
+        // private const string LEXICAL_WEBSERVER = "https://net-lexical.codecreation.dev/lexical/index-file.html";
+
+
+
+        // perform its own hosting
+        private const string LEXICAL_WEBSERVER = "http://localhost:8090/editor";
+        private AppController appController;
+
 
 
         /// <summary>
@@ -35,6 +44,9 @@ namespace DotNetLexical
         [STAThread]
         static void Main()
         {
+            AppController appController = new();
+            appController.StartApplication();
+
             AppDomain.CurrentDomain.UnhandledException += ReportUnhandledException;
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
             Application.EnableVisualStyles();

@@ -94,21 +94,36 @@ namespace DotNetLexical
 
             if (keyData == (Keys.F1))
             {
-                Debug.WriteLine($"ExecuteScriptAsync document.formatHeading1()");
-                await webView2.ExecuteScriptAsync("document.formatHeading1()");
+                // Debug.WriteLine($"ExecuteScriptAsync document.formatHeading1()");
+                // await webView2.ExecuteScriptAsync("document.formatHeading1()");
+
+                // -- retrieve and print the node-map
+                // Debug.WriteLine($"GET STATE");
+                // string result = await webView2.ExecuteScriptAsync("document.editorHandle.getEditorState().toJSON()._nodeMap");
+                // string result = await webView2.ExecuteScriptAsync("document.editorHandle.getEditorState().toJSON()");
+                // Debug.WriteLine($"{result}");
+
+                // -- R: this almost works
+                // it achieves constructing a json object from the given string, but then subsequently it is not accepted
+                // by the setEditorsState method. It's probably a good idea to try a newer version of lexical if I wish to progress
+                string prevState = "{\"_nodeMap\":[[\"root\",{\"__cachedText\":\"hello\",\"__children\":[\"1\"],\"__dir\":\"ltr\",\"__format\":0,\"__indent\":0,\"__key\":\"root\",\"__parent\":null,\"__type\":\"root\"}],[\"1\",{\"__children\":[\"2\"],\"__dir\":\"ltr\",\"__format\":0,\"__indent\":0,\"__key\":\"1\",\"__parent\":\"root\",\"__type\":\"paragraph\"}],[\"2\",{\"__detail\":0,\"__format\":0,\"__key\":\"2\",\"__marks\":null,\"__mode\":0,\"__parent\":\"1\",\"__style\":\"\",\"__text\":\"hello\",\"__type\":\"text\"}]],\"_selection\":{\"anchor\":{\"key\":\"2\",\"offset\":5,\"type\":\"text\"},\"focus\":{\"key\":\"2\",\"offset\":5,\"type\":\"text\"},\"type\":\"range\"}}";
+                string script = $@"
+                    var jsonState = JSON.parse('{prevState}');
+                    document.editorHandle.setEditorState(jsonState);
+                ";
+                await webView2.ExecuteScriptAsync(script);
             }
 
             if (keyData == (Keys.F2))
             {
-                Debug.WriteLine($"ExecuteScriptAsync document.formatHeading2()");
-                await webView2.ExecuteScriptAsync("document.formatHeading2()");
+                // Debug.WriteLine($"ExecuteScriptAsync document.formatHeading2()");
+                // await webView2.ExecuteScriptAsync("document.formatHeading2()");
             }
 
             if (keyData == Keys.Down)
             {
                 editingActionsComboBox.Focus();
             }
-
 
             // closes application on Esc
             if (keyData == Keys.Escape)
@@ -122,8 +137,8 @@ namespace DotNetLexical
             switch (sel)
             {
                 case 0:
-                    Debug.WriteLine($"ExecuteScriptAsync document.formatParagraph()");
-                    await webView2.ExecuteScriptAsync("document.formatParagraph()");
+                    // Debug.WriteLine($"ExecuteScriptAsync document.formatParagraph()");
+                    // await webView2.ExecuteScriptAsync("document.formatParagraph()");
                     break;
 
                 case 1:
